@@ -1,0 +1,295 @@
+@import 'variables';
+@import 'breakpoints';
+
+html {
+    font-size: 10px;
+}
+
+body {
+    color: $text;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1232px;
+    margin: 0 auto;
+    padding: 33px 15px;
+}
+
+.container {
+    max-width: 1232px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+.nav {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    &__item {
+        margin-left: 4.4rem;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-left: 2.8rem;
+        }
+    }
+    &__link {
+        color: $text;
+        &:hover {
+            color: $purple;
+        }
+    }
+    &__btn {
+        font-size: 1.4rem;
+        background-color: $purple;
+        color: $white;
+        padding: 1.6rem 2.5rem;
+        border-radius: .6rem;
+    }
+}
+
+.banner {
+    text-align: center;
+    background-color: $text;
+    color: $white;
+    padding-top: 62px;
+    min-width: 500px;
+    &__title {
+        font-size: 5.5rem;
+        max-width: 570px;
+        margin: 0 auto 3.1rem;
+    }
+    &__img {
+        max-width: 100%;
+    }
+}
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__btn {
+        border: 1px solid $purple;
+        font-size: 1.6rem;
+        padding: 1.5rem 3.7rem;
+        background-color: $purple;
+        color: $white;
+        border-radius: .6rem;
+        margin: 0.8rem;
+        &:hover {
+            transition: all .4s ease;
+            -webkit-transition: all .4s ease;
+            background: none;
+            transform: scale(0.95);
+            border-color: $white;
+        }
+    }
+}
+.section {
+    padding-top: 50px;
+    min-width: 500px;
+    &__title {
+        font-size: 4.8rem;
+        font-weight: 700;
+        text-align: center;
+        max-width: 590px;
+        margin: 0 auto;
+    }
+}
+.tarif {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include breakpoint (xl) {
+        margin: 0 3rem;
+    }
+    @include breakpoint (md_sp1) {
+        justify-content: center;
+    }
+    &-item {
+        border-radius: 8px;
+        @include breakpoint (xl) {
+            flex: 0 1 32.6%;
+        }
+        @include breakpoint (lg) {
+            flex: 0 1 48%;
+            margin-bottom: 2rem;
+        }
+        @include breakpoint (md) {
+            flex: 0 1 49%;
+        }
+        @include breakpoint (md_sp1) {
+            flex: 0 1 70%;
+        }
+        @include breakpoint (sm) {
+            flex: 0 1 85%;
+        }
+        @include breakpoint (xxs) {
+            flex: 0 1 100%;
+        }
+        &-01 {
+            .tarif-header {
+                background-image: url(../images/tarif-header-1.svg);
+            }
+            .tarif-list__item::before {
+                background-image: url(../images/checkbox-01.svg);
+            }
+            .tarif-footer {
+                background-color: rgba($color: $text, $alpha: .03);
+            }
+        }
+        &-02 {
+            .tarif-header {
+                background-image: url(../images/tarif-header-2.svg);
+            }
+            .tarif-info__title {
+                color: #19C787;
+            }
+            .tarif-footer {
+                background-color: rgba($color: #19C787, $alpha: .05);
+            }            
+            .tarif-list__item::before {
+                    background-image: url(../images/checkbox-02.svg);
+            }
+        }
+        &-03 {
+            @include breakpoint (lg) {
+                transform: scale(1.1);
+                margin: 0 auto;
+            }
+            @include breakpoint (md_sp1) {
+                transform: scale(1);
+            }
+            .tarif-info__title {
+                color: #FF9F1C;
+            }
+            .tarif-header {
+                background-image: url(../images/tarif-header-3.svg);
+            }
+            .tarif-footer {
+                background-color: rgba($color: #FCB934, $alpha: .05);
+            }
+            .tarif-list__item::before {
+                    background-image: url(../images/checkbox-03.svg);
+            }
+        }
+    }
+    &-header {
+        width: 39.5rem;
+        height: 25rem;
+        color: $white;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-radius: 8px 8px 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint (xl) {
+            width: 100%;
+        }@include breakpoint (md) {
+            height: 20rem;
+        }
+    }
+    &-info {
+        &__title {
+            font-size: 2.4rem;
+            padding: 2.8rem 3rem 3.7rem ;
+            position: relative;
+            @include breakpoint (md) {
+                padding: 3rem 2rem 2.5rem;
+                font-size: 2rem;
+            }
+            @include breakpoint (sm) {
+                padding: 3rem 2rem 2rem 9%;
+            }
+            @include breakpoint (xxs) {
+                padding: 3rem 2rem 2rem;
+                font-size: 2rem;
+            }
+            @include breakpoint (xxxs) {
+                padding: 3rem 1rem 2rem 1.3rem;
+                font-size: 2rem;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                width: 6.1rem;
+                height: 1.6rem;
+                top: 0;
+                background-image: url(../images/logo-sm.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+        &__price {
+            font-size: 4.8rem;
+            margin: 0;
+            padding: 0 3.1rem 2.7rem 0;
+            @include breakpoint (md) {
+                padding: 2rem 2rem 1.6rem;
+                font-size: 4rem;
+            }
+            @include breakpoint (sm) {
+                padding: 3rem 9% 1.4rem 2rem;
+            }
+            @include breakpoint (xxs) {
+                padding: 2rem 2rem 1.4rem 0;
+                font-size: 3.5rem;
+            }
+            @include breakpoint (xxxs) {
+                padding: 2rem 1rem 1.4rem 0;
+            }
+            span {
+                font-size: 1.5rem;
+                position: relative;
+                top: .2rem;
+                right: .5rem;
+            }
+        }
+    }
+    &-footer {
+        border-radius: 0 0 .8rem .8rem;
+    }
+    &-list {
+        list-style: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        padding: .6rem 0;
+        margin: 0;
+        border-radius: 0 0 8px 8px;
+        position: relative;
+        &__item {
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-left: 3rem;
+            margin-bottom: 1.4rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            &::before {
+                content: '';
+                display: block;
+                width: 2rem;
+                height: 2rem;
+                position: absolute;
+                top: calc(50% - 1rem);
+                left: 0;
+            }
+        }
+    }
+}
